@@ -1,216 +1,3 @@
-
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PinkHotel Booking</title>
-
-<style>
-body {
-    font-family: Arial;
-    margin: 0;
-    background: 
-#f4f4f4;
-}
-
-/* HEADER */
-header {
-    background: 
-#ff5a8a;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-/* MENU */
-nav {
-    background: white;
-    box-shadow: 0 4px 2px -2px gray;
-}
-
-nav ul {
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-    margin: 0;
-    padding: 12px 0;
-}
-
-nav a {
-    text-decoration: none;
-    color: 
-#ff5a8a;
-    font-weight: bold;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-nav a:hover {
-    color: 
-#e04874;
-}
-
-/* IFRAME */
-iframe {
-    width: 100%;
-    height: calc(100vh - 160px);
-    border: none;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-    <h1>PinkHotel – Đặt Phòng Khách Sạn</h1>
-    <p>Phong cách Aura – Màu hồng hiện đại</p>
-</header>
-
-<nav>
-    <ul>
-        <li><a onclick="loadHome()">Trang chủ</a></li>
-        <li><a onclick="loadContact()">Liên hệ</a></li>
-        <li><a onclick="loadRegister()">Đăng ký</a></li>
-    </ul>
-</nav>
-
-<iframe id="content"></iframe>
-
-<script>
-function loadHome() {
-document.getElementById("content").srcdoc = `
-<style>
-body{font-family:Arial;background:
-#f6f6f6;padding:20px}
-h2{color:
-#ff5a8a}
-.hotels{display:flex;gap:20px}
-.hotel{background:white;width:33%;border-radius:10px;box-shadow:0 0 8px #ccc;overflow:hidden}
-.hotel img{width:100%;height:180px;object-fit:cover}
-.hotel div{padding:15px}
-.price{color:
-#ff5a8a;font-weight:bold}
-</style>
-
-<h2>Giới thiệu khách sạn & địa điểm du lịch</h2>
-<div class="hotels">
-<div class="hotel">
-<img src="https://tse2.mm.bing.net/th/id/OIP.oBTJJ0ZtDnaB6QF4TupPRgHaJQ?rs=1&pid=ImgDetMain&o=7&rm=3">
-<div><h3>Ngan Hotel</h3><p>Gần trung tâm du lịch</p><p class="price">1.200.000đ</p></div>
-</div>
-
-<div class="hotel">
-<img src="https://tse4.mm.bing.net/th/id/OIP.rXFUeafkwj2Qgl5leKtL-QHaFj?w=1759&h=1318&rs=1&pid=ImgDetMain&o=7&rm=3">
-<div><h3>Phat Resort</h3><p>Nghỉ dưỡng cao cấp</p><p class="price">1.800.000đ</p></div>
-</div>
-
-<div class="hotel">
-<img src="https://th.bing.com/th/id/R.8a7399e8be7a33fda125f08c6ad22d4b?rik=NnueCJpghAYtVw&pid=ImgRaw&r=0">
-<div><h3>Dile Hotel</h3><p>Thuận tiện di chuyển</p><p class="price">950.000đ</p></div>
-</div>
-</div>
-`;
-}
-
-function loadContact() {
-document.getElementById("content").srcdoc = `
-<style>git commit
-body{font-family:Arial;background:
-#f6f6f6;padding:40px}
-h2{color:
-#ff5a8a}
-.hotline{font-size:22px;color:
-#ff5a8a;font-weight:bold}
-</style>
-
-<h2>Liên hệ khách sạn</h2>
-<p>📍 123 Đường Hồng Vy, Quận Minh Thư</p>
-<p>☎️ Đường dây nóng</p>
-<p class="hotline">1900 888 999</p>
-<p>⏰ Hỗ trợ 24/7</p>
-`;
-}
-
-function loadRegister() {
-document.getElementById("content").srcdoc = `
-<style>
-body{font-family:Arial;background:
-#f6f6f6;padding:40px}
-h2{color:
-#ff5a8a}input,select,button{width:100%;padding:10px;margin:10px 0}
-button{background:
-#ff5a8a;color:white;border:none;font-size:16px}
-</style>
-
-<h2>Đăng ký đặt phòng</h2>
-<select><option>Hà Nội</option><option>Đà Nẵng</option><option>TP.HCM</option></select>
-<select><option>Ngan Hotel</option><option>Phat Resort</option><option>Dile Hotel</option></select>
-<input placeholder="Họ và tên">
-<input placeholder="Số điện thoại">
-<input type="email" placeholder="Email">
-<button>Đăng ký</button>
-`;
-}
-
-loadHome(); /* load trang chủ mặc định */
-</script>
-
-</body>
-</html>
-Rewrite this website using just html and css and divide it into multiple file if you can
-
-Show more
-9:17 AM
-
-Read frontend design skill
-Read frontend design skill
-I'll rewrite this as a multi-file website with a polished, modern aesthetic.
-
-
-Created 4 files, ran a command, read a file
-Created 4 files, ran a command, read a file
-Website đã được viết lại thành 4 file riêng biệt:
-
-File	Nội dung
-index.html	Trang chủ – hero, stats, danh sách khách sạn
-contact.html	Liên hệ – thông tin, hotline, bản đồ
-booking.html	Đặt phòng – form + sidebar tóm tắt
-style.css	Toàn bộ CSS dùng chung cho 3 trang
-Cải tiến so với bản gốc:
-
-Dùng font Playfair Display + DM Sans thay vì Arial
-Navigation thực sự chuyển trang (không dùng iframe)
-Trang đặt phòng có tính năng tính tiền tự động theo số đêm và khách sạn chọn
-Modal xác nhận đặt phòng sau khi submit
-Responsive cho mobile
-Active state trên nav để biết đang ở trang nào
-Index
-Code · HTML 
-Contact
-Code · HTML 
-Booking
-Code · HTML 
-Style
-Code · CSS 
-Still using iframe
-
-9:20 AM
-Looking at your code, the issue is that the original used srcdoc inside an iframe to simulate pages. My rewrite uses separate HTML files with real <a href> links — no iframes at all. But since you're viewing index.html directly in the browser, the links between pages should work fine when you open the files locally.
-
-If you're seeing an iframe, it might be because the preview renderer here embeds HTML files inside one. The actual downloaded files have no iframe — you can verify by opening style.css and checking that there's no iframe selector, or looking at the <body> of any of the three HTML files.
-
-To confirm: open the downloaded index.html in your browser directly (not through the preview here), and the navigation will load full separate pages with no iframe involved.
-
-
-
-
-
-
-Claude is AI and can make mistakes. Please double-check responses.
-Index · HTML
-Copy
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -220,7 +7,7 @@ Copy
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
- 
+
 <!-- HEADER -->
 <header>
   <a href="index.html" class="logo">
@@ -235,7 +22,7 @@ Copy
     </ul>
   </nav>
 </header>
- 
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-tag">✦ Chào mừng đến PinkHotel</div>
@@ -244,7 +31,7 @@ Copy
   <a href="booking.html" class="btn btn-primary">Đặt phòng ngay</a>
   <a href="contact.html" class="btn btn-outline">Liên hệ chúng tôi</a>
 </section>
- 
+
 <!-- STATS -->
 <div class="stats">
   <div class="stat">
@@ -264,7 +51,7 @@ Copy
     <div class="stat-label">Hỗ trợ khách hàng</div>
   </div>
 </div>
- 
+
 <!-- HOTELS -->
 <div class="section">
   <div class="section-header">
@@ -272,9 +59,9 @@ Copy
     <h2 class="section-title">Khách sạn dành cho bạn</h2>
     <p class="section-sub">Lựa chọn từ những khách sạn chất lượng cao, đã được kiểm duyệt kỹ lưỡng.</p>
   </div>
- 
+
   <div class="hotels-grid">
- 
+
     <div class="hotel-card">
       <div class="hotel-img-wrap">
         <img class="hotel-img"
@@ -292,7 +79,7 @@ Copy
         </div>
       </div>
     </div>
- 
+
     <div class="hotel-card">
       <div class="hotel-img-wrap">
         <img class="hotel-img"
@@ -310,7 +97,7 @@ Copy
         </div>
       </div>
     </div>
- 
+
     <div class="hotel-card">
       <div class="hotel-img-wrap">
         <img class="hotel-img"
@@ -328,15 +115,14 @@ Copy
         </div>
       </div>
     </div>
- 
+
   </div>
 </div>
- 
+
 <!-- FOOTER -->
 <footer>
   <p>© 2025 <span>PinkHotel</span>. Thiết kế với ❤️ – Phong cách Aura.</p>
 </footer>
- 
+
 </body>
 </html>
- 
