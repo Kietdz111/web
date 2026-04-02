@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PinkHotel – Đặt Phòng</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="logo">
+    <div class="logo-icon">🌸</div>
+    <span class="logo-text">Pink<span>Hotel</span></span>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="index.html">Trang chủ</a></li>
+      <li><a href="contact.html">Liên hệ</a></li>
+      <li><a href="booking.html" class="nav-cta active">Đặt phòng</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- BOOKING SECTION -->
+<div class="section" style="padding-top:56px">
+  <div class="section-header" style="text-align:center;margin-bottom:48px">
+    <div class="section-tag">✦ Chỉ vài bước đơn giản</div>
+    <h2 class="section-title">Đặt phòng ngay hôm nay</h2>
+    <p class="section-sub">Điền thông tin bên dưới – chúng tôi sẽ xác nhận qua email trong vòng 15 phút.</p>
+  </div>
+
+  <div class="booking-wrapper">
+
+    <!-- FORM -->
+    <div class="booking-form">
+      <h2>Thông tin đặt phòng</h2>
+      <p>Vui lòng điền đầy đủ thông tin để hoàn tất đặt phòng.</p>
+
+      <div class="form-group">
+        <label>Thành phố / Điểm đến</label>
+        <select id="city" onchange="updatePrice()">
+          <option value="">-- Chọn thành phố --</option>
+          <option value="hn">Hà Nội</option>
+          <option value="dn">Đà Nẵng</option>
+          <option value="hcm">TP. Hồ Chí Minh</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Khách sạn</label>
+        <select id="hotel" onchange="updatePrice()">
+          <option value="">-- Chọn khách sạn --</option>
+          <option value="ngan" data-price="1200000">Ngan Hotel – 1.200.000đ / đêm</option>
+          <option value="phat" data-price="1800000">Phat Resort – 1.800.000đ / đêm</option>
+          <option value="dile" data-price="950000">Dile Hotel – 950.000đ / đêm</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Ngày nhận phòng</label>
+          <input type="date" id="checkin" onchange="updatePrice()">
+        </div>
+        <div class="form-group">
+          <label>Ngày trả phòng</label>
+          <input type="date" id="checkout" onchange="updatePrice()">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Họ và tên</label>
+          <input type="text" placeholder="Nguyễn Văn A">
+        </div>
+        <div class="form-group">
+          <label>Số điện thoại</label>
+          <input type="tel" placeholder="0912 345 678">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="email@example.com">
+      </div>
+
+      <div class="form-group">
+        <label>Ghi chú (tuỳ chọn)</label>
+        <input type="text" placeholder="Yêu cầu đặc biệt, loại phòng...">
+      </div>
+
+      <button class="form-submit" onclick="submitBooking()">
+        🌸 &nbsp; Xác nhận đặt phòng
+      </button>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="booking-side">
+
+      <div class="side-card">
+        <h3>Tóm tắt đặt phòng</h3>
+        <div class="price-info">
+          <span class="label">Khách sạn</span>
+          <span class="value" id="sum-hotel">Chưa chọn</span>
+        </div>
+        <div class="price-info">
+          <span class="label">Số đêm</span>
+          <span class="value" id="sum-nights">–</span>
+        </div>
+        <div class="price-info">
+          <span class="label">Đơn giá / đêm</span>
+          <span class="value" id="sum-rate">–</span>
+        </div>
+        <div class="price-info total">
+          <span class="label">Tổng cộng</span>
+          <span class="value" id="sum-total">–</span>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h3>Quyền lợi của bạn</h3>
+        <div class="perk">
+          <span class="perk-icon">✅</span> Xác nhận ngay trong 15 phút
+        </div>
+        <div class="perk">
+          <span class="perk-icon">🔄</span> Huỷ miễn phí trước 24h
+        </div>
+        <div class="perk">
+          <span class="perk-icon">🍳</span> Bữa sáng miễn phí (áp dụng tuỳ khách sạn)
+        </div>
+        <div class="perk">
+          <span class="perk-icon">🅿️</span> Bãi đỗ xe miễn phí
+        </div>
+        <div class="perk">
+          <span class="perk-icon">📞</span> Hỗ trợ 24/7: 1900 888 999
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-icon">🌸</div>
+    <h3>Đặt phòng thành công!</h3>
+    <p>Cảm ơn bạn đã tin tưởng PinkHotel. Chúng tôi sẽ gửi xác nhận đến email của bạn trong vòng 15 phút.</p>
+    <button class="btn btn-primary" onclick="closeModal()" style="width:100%">Về trang chủ</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <span>PinkHotel</span>. Thiết kế với ❤️ – Phong cách Aura.</p>
+</footer>
+
+<script>
+  // Set min date to today
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('checkin').min = today;
+  document.getElementById('checkout').min = today;
+
+  function updatePrice() {
+    const hotelEl = document.getElementById('hotel');
+    const selected = hotelEl.options[hotelEl.selectedIndex];
+    const price = parseInt(selected.dataset.price) || 0;
+    const hotelName = price ? selected.text.split('–')[0].trim() : 'Chưa chọn';
+
+    const cin  = document.getElementById('checkin').value;
+    const cout = document.getElementById('checkout').value;
+
+    let nights = 0;
+    if (cin && cout) {
+      const diff = (new Date(cout) - new Date(cin)) / (1000 * 60 * 60 * 24);
+      if (diff > 0) nights = diff;
+    }
+
+    document.getElementById('sum-hotel').textContent = hotelName;
+    document.getElementById('sum-nights').textContent = nights ? nights + ' đêm' : '–';
+    document.getElementById('sum-rate').textContent = price ? price.toLocaleString('vi-VN') + 'đ' : '–';
+    document.getElementById('sum-total').textContent = (price && nights)
+      ? (price * nights).toLocaleString('vi-VN') + 'đ' : '–';
+  }
+
+  function submitBooking() {
+    document.getElementById('modal').classList.add('open');
+  }
+
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+    window.location.href = 'index.html';
+  }
+</script>
+
+</body>
+</html>
